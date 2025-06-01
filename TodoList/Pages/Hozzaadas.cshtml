@@ -1,0 +1,18 @@
+﻿@page
+@model TodoList.Pages.HozzaadasModel
+
+Ez itt a hozzáadás oldal.
+
+<form method="post">
+    <div>
+        <label for="Cím">Teendő címe</label>
+        <input type="Cim" id="Cim" name="Cim" asp-for="Cim" />
+
+        <label for="Datum">Teendő dátuma</label>
+        <input asp-for="Datum" type="datetime-local" asp-format="{0:yyyy-MM-ddTHH:mm}" />
+    </div>
+    <br />
+    <button type="submit">Teendő felvétele</button>
+</form>
+@{
+}
