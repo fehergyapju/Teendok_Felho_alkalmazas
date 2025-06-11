@@ -1,0 +1,18 @@
+﻿@page
+@using TodoList.Modellek
+@model TodoList.Pages.MegtekintesModel
+Ők a megcsinált teendők.
+@{
+	//Ez a teendőket rendezi időpont szerint
+	List<Teendo> RendezettTeendok = Tarhely.Teendok.OrderBy(x => x.Idopont).ToList();
+
+	foreach (var item in RendezettTeendok)
+	{
+		if (item.Megcsinaltae == true)
+		{
+			string szoveg = item.Leiras + " - " + item.Idopont + " - " + item.Id;
+
+			<h4> @szoveg </h4>
+		}
+	}
+}
