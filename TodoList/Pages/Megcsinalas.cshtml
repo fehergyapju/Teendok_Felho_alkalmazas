@@ -1,0 +1,27 @@
+﻿@page
+@using TodoList.Modellek
+@model TodoList.Pages.MegcsinaltModel
+Ez itt a megcsinálás oldal.
+
+<form method="post">
+    <div>
+        <label for="Cím">Írd be a teendőnek az azonosítóját, amit meg akarsz csinálni!</label>
+        <input type="Azonosito" id="Azonosito" name="Azonosito" asp-for="Azonosito" />
+    </div>
+    <br />
+    <button type="submit">Teendő felvétele</button>
+</form>
+@{
+	//Ez a teendőket rendezi időpont szerint
+	List<Teendo> RendezettTeendok = Tarhely.Teendok.OrderBy(x => x.Idopont).ToList();
+
+	foreach (var item in RendezettTeendok)
+	{
+		if (item.Megcsinaltae == true)
+		{
+			string szoveg = item.Leiras + " - " + item.Idopont + " - " + item.Id;
+
+			<h4> @szoveg </h4>
+		}
+	}
+}
